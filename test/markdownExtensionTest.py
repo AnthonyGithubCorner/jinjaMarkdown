@@ -76,6 +76,10 @@ def test_markdown():
     template: Template = environment.from_string("""{{ "***yo*** im writing stuff!  \n*crazy* **right**\n\nAnyways**...**" | markdown }}""")
     assert template.render() == "<p><strong><em>yo</em></strong> im writing stuff!<br>\n<em>crazy</em> <strong>right</strong></p><p>Anyways<strong>...</strong></p>"
 
+    template: Template = environment.from_string("""{{ "*20* <br>## 20" | markdown }}""")
+    assert template.render() == "<p><em>20</em> </p><p><h2>20</h2></p>"
+
+
     template: Template = environment.from_string(
         """{{ "***hey*** I'm writing stuff!  \n*crazy* **right**\n\nAnyways**...**\n\n![dinosaur!](https://www.example.com/images/dinosaur.jpg)" | markdown }}""")
     assert template.render() == "<p><strong><em>hey</em></strong> I'm writing stuff!<br>\n<em>crazy</em> <strong>right</strong></p><p>Anyways<strong>...</strong></p><p><img jinjaMarkdown=&quot;https://www.example.com/images/dinosaur.jpg&quot; alt=&quot;dinosaur!&quot;></p>"

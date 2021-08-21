@@ -141,12 +141,16 @@ def lineBreak(inputText):
     stopPharsing = -2
     i = 0
     while i < len(inputText):
-        if inputText[i] == " " and inputText[i+1] == " ":
-            outputText += "<br>"
-            i+=2
+        if(i!=len(inputText)-1):
+            if inputText[i] == " " and inputText[i+1] == " ":
+                outputText += "<br>"
+                i+=2
+            else:
+                outputText += inputText[i]
+                i+=1
         else:
             outputText += inputText[i]
-            i+=1
+            i += 1
 
     return outputText
 
@@ -170,11 +174,17 @@ def markdown(inputText):
     currentLine = ""
     outputText = ""
     while lineEnd != len(inputText):
-        if inputText[lineEnd:lineEnd + 2]=="\n\n" or inputText[lineEnd:lineEnd + 3] == "\n \n" or inputText[lineEnd:lineEnd + 2]=="<br>":
+        if inputText[lineEnd:lineEnd + 2]=="\n\n":
             currentLine = inputText[lineStart:lineEnd]
             currentLine = applyMarkdown(currentLine)
             outputText += "<p>" + currentLine + "</p>"
             lineEnd += 2
+            lineStart = lineEnd
+        if inputText[lineEnd:lineEnd + 4] == "<br>":
+            currentLine = inputText[lineStart:lineEnd]
+            currentLine = applyMarkdown(currentLine)
+            outputText += "<p>" + currentLine + "</p>"
+            lineEnd += 4
             lineStart = lineEnd
         lineEnd += 1
     currentLine = inputText[lineStart:lineEnd]
