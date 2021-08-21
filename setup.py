@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="jinjaMarkdown",
-    version="0.0.3",
+    version="0.0.4",
     author="Anthony Lazar",
     author_email="alazar@uwaterloo.ca",
     description="A package containing a markdown filter for jinja2",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/later/",
+    url="https://github.com/AnthonyGithubCorner/jinjaMarkdown",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

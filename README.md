@@ -20,7 +20,7 @@ This package offers a markdown filter to can be used to convert markdown to html
         
         {{ "# Hello World" | markdown }}
 
-    **Note:** The above code would be equivalent to
+    The above code would be equivalent to
         
         "<p><h1>Hello World</h1></p>"
 
@@ -31,7 +31,7 @@ This package offers a markdown filter to can be used to convert markdown to html
         {% autoescape false %}
         {{ "# Hello World" | markdown }}
         {% endautoescape %}
-      **Note:** Malicious code can be run while autoescape is turned off, so please keep your code secure
+      **Note:** Malicious code can be run while autoescape is turned off, so please keep your code secure.
 
 # Markdown Syntax in Use
 
