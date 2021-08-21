@@ -170,7 +170,7 @@ def markdown(inputText):
     currentLine = ""
     outputText = ""
     while lineEnd != len(inputText):
-        if inputText[lineEnd:lineEnd + 2]=="\n\n":
+        if inputText[lineEnd:lineEnd + 2]=="\n\n" or inputText[lineEnd:lineEnd + 3] == "\n \n" or inputText[lineEnd:lineEnd + 2]=="<br>":
             currentLine = inputText[lineStart:lineEnd]
             currentLine = applyMarkdown(currentLine)
             outputText += "<p>" + currentLine + "</p>"
