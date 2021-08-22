@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="jinjaMarkdown",
-    version="0.0.7",
+    version="0.0.8",
     author="Anthony Lazar",
     author_email="alazar@uwaterloo.ca",
     description="A package containing a markdown filter for jinja2",
