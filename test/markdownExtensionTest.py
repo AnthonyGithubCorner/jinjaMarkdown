@@ -43,8 +43,8 @@ def test_heading():
     assert template.render() == "<h5>hello bold bye</h5>"
 
 def test_image():
-    template: Template = environment.from_string("""{{ "![dinosaur!](https://www.example.com/images/dinosaur.jpg)" | image }}""")
-    assert template.render() == "<img jinjaMarkdown=&quot;https://www.example.com/images/dinosaur.jpg&quot; alt=&quot;dinosaur!&quot;>"
+    template: Template = environment.from_string("""{{ "![city](https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg)" | image }}""")
+    assert template.render() == "<img src=&quot;https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg&quot; alt=&quot;city&quot;>"
 
 def test_link():
     template: Template = environment.from_string("""{{ "My favorite search engine is [Duck Duck Go](https://duckduckgo.com)." | link }}""")

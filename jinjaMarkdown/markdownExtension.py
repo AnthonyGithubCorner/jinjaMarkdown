@@ -96,7 +96,7 @@ def image(inputText):
                     imageSource += inputText[j]
                     j += 1
 
-        outputText = "<img jinjaMarkdown=&quot;" + imageSource + "&quot; alt=&quot;" + imageAlt + "&quot;>"
+        outputText = "<img src=&quot;" + imageSource + "&quot; alt=&quot;" + imageAlt + "&quot;>"
         return outputText
     else:
         return  inputText
