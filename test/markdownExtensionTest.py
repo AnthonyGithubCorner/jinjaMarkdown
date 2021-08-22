@@ -81,5 +81,5 @@ def test_markdown():
 
 
     template: Template = environment.from_string(
-        """{{ "***hey*** I'm writing stuff!  \n*crazy* **right**\n\nAnyways**...**\n\n![dinosaur!](https://www.example.com/images/dinosaur.jpg)" | markdown }}""")
-    assert template.render() == "<p><strong><em>hey</em></strong> I'm writing stuff!<br>\n<em>crazy</em> <strong>right</strong></p><p>Anyways<strong>...</strong></p><p><img src=https://www.example.com/images/dinosaur.jpg alt=dinosaur!></p>"
+        """{{ "***hey*** I'm writing stuff!  \n*crazy* **right**\n\nAnyways**...**\n\n![dinosaur!](https://www.example.com/images/dinosaur.jpg) \n\nMy favorite search engine is [Duck Duck Go](https://duckduckgo.com)." | markdown }}""")
+    assert template.render() == "<p><strong><em>hey</em></strong> I'm writing stuff!<br>\n<em>crazy</em> <strong>right</strong></p><p>Anyways<strong>...</strong></p><p><img src=https://www.example.com/images/dinosaur.jpg alt=dinosaur!></p><p>My favorite search engine is <a href=https://duckduckgo.com>Duck Duck Go</a>.</p>"

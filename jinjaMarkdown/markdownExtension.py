@@ -106,8 +106,10 @@ def link(inputText):
     linkAddress = ""
     outputText = ""
     i = 0
+    link = False
     while i < len(inputText)-1:
         if inputText[i] == "[":
+            link = True
             i += 1
             x = i
             while x < len(inputText):
@@ -131,7 +133,8 @@ def link(inputText):
             outputText += inputText[i]
             i+=1
 
-    outputText += "<a href=" + linkAddress + ">" + linkText + "</a>"
+    if(link):
+        outputText += "<a href=" + linkAddress + ">" + linkText + "</a>"
     outputText += inputText[len(inputText)-1]
     return outputText
 
@@ -158,6 +161,7 @@ def applyMarkdown(inputText):
     outputText = inputText
     #apply image first
     outputText = image(outputText)
+    outputText = link(outputText)
     # boldItalics, bold and italics must be ordered from most *** to least *. This is so they are not confused amongst each other
     outputText = boldItalics(outputText)
     outputText = bold(outputText)
