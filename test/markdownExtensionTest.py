@@ -44,11 +44,11 @@ def test_heading():
 
 def test_image():
     template: Template = environment.from_string("""{{ "![city](https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg)" | image }}""")
-    assert template.render() == "<img src=&quot;https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg&quot; alt=&quot;city&quot;>"
+    assert template.render() == "<img src=https://ichef.bbci.co.uk/news/976/cpsprodpb/12A9B/production/_111434467_gettyimages-1143489763.jpg alt=city>"
 
 def test_link():
     template: Template = environment.from_string("""{{ "My favorite search engine is [Duck Duck Go](https://duckduckgo.com)." | link }}""")
-    assert template.render() == "My favorite search engine is <a href=&quot;https://duckduckgo.com&quot;>Duck Duck Go</a>."
+    assert template.render() == "My favorite search engine is <a href=https://duckduckgo.com>Duck Duck Go</a>."
 
 def test_lineBreaks():
     template: Template = environment.from_string("""{{ "This is the first line.  \nAnd this is the second line." | lineBreak }}""")
@@ -82,4 +82,4 @@ def test_markdown():
 
     template: Template = environment.from_string(
         """{{ "***hey*** I'm writing stuff!  \n*crazy* **right**\n\nAnyways**...**\n\n![dinosaur!](https://www.example.com/images/dinosaur.jpg)" | markdown }}""")
-    assert template.render() == "<p><strong><em>hey</em></strong> I'm writing stuff!<br>\n<em>crazy</em> <strong>right</strong></p><p>Anyways<strong>...</strong></p><p><img jinjaMarkdown=&quot;https://www.example.com/images/dinosaur.jpg&quot; alt=&quot;dinosaur!&quot;></p>"
+    assert template.render() == "<p><strong><em>hey</em></strong> I'm writing stuff!<br>\n<em>crazy</em> <strong>right</strong></p><p>Anyways<strong>...</strong></p><p><img src=https://www.example.com/images/dinosaur.jpg alt=dinosaur!></p>"

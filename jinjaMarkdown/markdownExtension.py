@@ -96,7 +96,7 @@ def image(inputText):
                     imageSource += inputText[j]
                     j += 1
 
-        outputText = "<img src=&quot;" + imageSource + "&quot; alt=&quot;" + imageAlt + "&quot;>"
+        outputText = "<img src=" + imageSource + " alt=" + imageAlt + ">"
         return outputText
     else:
         return  inputText
@@ -131,7 +131,7 @@ def link(inputText):
             outputText += inputText[i]
             i+=1
 
-    outputText += "<a href=&quot;" + linkAddress + "&quot;>" + linkText + "</a>"
+    outputText += "<a href=" + linkAddress + ">" + linkText + "</a>"
     outputText += inputText[len(inputText)-1]
     return outputText
 
